@@ -35,7 +35,11 @@ Three versions, stand alone HTML, Joomla Module and Wordpress Plugin.
 Requirements
 =============
 jQuery v. 1.6+
+
 path.js (included)
+
+jquery.ui.touch-punch.min.js (optional - included)
+
 
 
 Author
