@@ -1,5 +1,3 @@
-
-
 <?php
 /**
  * @package     Joomla.Site
@@ -8,8 +6,8 @@
  * @copyright   Copyright (C) 2012 Brian Williford, All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @ Inquiries	info@ohmybrain.com - http://www.brianwilliford.com 
- * Last Modified: BW 121217a
- */
+ * Last Modified: BW 121218a
+*/
 
 defined('_JEXEC') or die;
 
@@ -37,13 +35,10 @@ defined('_JEXEC') or die;
 	JHtml::_('jquery.framework');  // joomla 3.0 :: includes no-conflict call :: JHtml::_('jquery.framework', false); does not
 	$doc->addScript('modules/mod_bw_menu_flower/helpers/path.min.js');
 	$doc->addScript('modules/mod_bw_menu_flower/helpers/jquery.ui.touch-punch.min.js');
+
 ?>
-<?php // The menu class is deprecated. Use nav instead. ?>
-<!--
-<script src="modules/mod_bw_menu_flower/helpers/jquery.min.js"></script>
--->
+
 <script language="javascript" type="text/javascript">
-	// set up global vars
 	bw_gvars = {};
 	bw_gvars.flowerBloomed		= 0; // no touch
 	
@@ -51,8 +46,8 @@ defined('_JEXEC') or die;
 	bw_gvars.pedalRotate		= <?php echo $pedal_rotate ?>; // 0 parallel to horizon :: 1 pedals perpendicular radius
 	bw_gvars.pedalAngle			= 90; // 45 can be fun / the above pedalRotate flips this integer 90 degrees
 	bw_gvars.cssWrapperSize		= <?php echo $wrapper_size; ?>; // in pixels
-	bw_gvars.radiusSizeStart	= <?php echo $flower_size_start; ?>; // in pixe
-	bw_gvars.radiusSizeEnd		= <?php echo $flower_size_end; ?>; // in pixe
+	bw_gvars.radiusSizeStart	= <?php echo $flower_size_start; ?>; // in pixels
+	bw_gvars.radiusSizeEnd		= <?php echo $flower_size_end; ?>; // in pixels
 </script>
 
 <style>
@@ -77,7 +72,7 @@ defined('_JEXEC') or die;
 		top: 80px;
 		left: 0px;
 		z-index: 1; /* set the pedals, or menu layer to be below the center - This gets flipped on center mouseleave */
-}
+	}
 </style>
 
 <div id="mod_bw_menu_flower_wrapper">
@@ -182,8 +177,6 @@ defined('_JEXEC') or die;
 		endforeach;
 		?></ul>
   </div>
-  
-
 	
   <?php if($control_panel == 1){ ?>
   	<div class="menu-flower-controls-wrapper">
@@ -204,11 +197,10 @@ defined('_JEXEC') or die;
 </div>	
 	
 <script type="text/javascript">
-	
 	// jquery time
 	jQuery(function ($) { 
 	
-		// fade other menus so sub menu is not hidden. z-indexes are bound to parent and not restackable
+		// fade other menus so sub menu is not hidden. z-indexes are bound to parent and not re-stackable
 		$(".menu-flower-items > li").hover(function() { // Mouse over
 			$(this).siblings().stop().fadeTo(300, 0.5);
 			$(this).parent().siblings().stop().fadeTo(300, 0.5); 
@@ -268,7 +260,7 @@ defined('_JEXEC') or die;
 
 
 	// set up the flower like canvas of elements and sub elements around circle via (x',y')=(cx+r*cos(α),cy+r*sin(α)
-	function setFlowerCanvas(circle_size,pedal_orientation=1,angleOffset=0,pedal_rotate=0){
+	function setFlowerCanvas(circle_size,pedal_orientation,angleOffset,pedal_rotate){
 		/*
 			* (x',y')=(cx+r*cos(α),cy+r*sin(α)) appled set joomla menu items and sub-menu items around a circle 
 			* formula/math credit goes to Ben Olson: http://benknowscode.wordpress.com/2012/09/24/aligning-dom-elements-around-a-circle/
