@@ -1,0 +1,618 @@
+/**
+ * @version		I Am a Flower v1.0.0
+ * @author		Brian Williford http://www.brianwilliford.com
+ * @copyright	Copyright (C) 2012 Oh My Brain, inc. All rights reserved
+ * @license     GNU General Public License version 2 or later; see Joomla LICENSE.txt
+ * @ Inquiries	info@ohmybrain.com - http://www.brianwilliford.com 
+ * @modified 	BW 121217a
+*/
+
+
+/* circular image -------------------------------------------------------- */
+#menu-flower-center-image-wrapper {
+	position: relative;
+	top: 80px; /* tweek this */
+	width:280px;
+	height:280px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* pedals - menus -------------------------------------------------------- */
+.menu-flower-items{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.menu-flower-items .parent{
+	z-index: 5 !important;
+}
+
+.menu-flower-items > li {
+	position: absolute;
+	background: #ffcc00;
+	color: #fff;
+	min-width: 72px;
+	width: 72px;
+	max-width: 72px;
+	height: 72px;
+	padding: 4px;
+	box-shadow: rgba(255,204,0,0.2) 0 -2px 8px 2px;
+	-webkit-border-radius:72px;
+	   -moz-border-radius:72px;
+	   		border-radius:72px;
+	text-align: center;
+	text-decoration: none !important;
+	text-shadow: none !important;
+}
+
+.menu-flower-items > li:hover{ 
+	position: absolute;
+	background: red;
+	-webkit-opacity: .9;
+	   -moz-opacity: .9;
+	   		opacity: .9;
+    filter: alpha(opacity = 90);
+    text-decoration: none !important;
+	text-shadow: none !important;
+}
+
+.menu-flower-items > .parent a{ 
+	position: absolute;
+	top: 24px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	font-family: helvetica;
+	text-decoration: none !important;
+	text-shadow: none !important;
+}
+ 
+.menu-flower-items > li ul{
+	position: absolute;
+	visibility: visible; 
+	background: #ffcc00;
+	list-style: none;
+	top: 36px;
+	left:-9999px;
+	min-width: 100px;
+	min-height: 100px !important;
+	box-shadow: rgba(0,0,0,0.3) 0 0 10px 10px;
+	-webkit-border-top-left-radius: 50px;
+	    -moz-border-radius-topleft: 50px;
+	        border-top-left-radius: 50px;
+	-webkit-border-top-right-radius: 50px;
+	    -moz-border-radius-topright: 50px;
+	        border-top-right-radius: 50px;
+	
+	-webkit-border-bottom-left-radius: 50px;
+	    -moz-border-radius-bottomleft: 50px;
+	        border-bottom-left-radius: 50px;
+	-webkit-border-bottom-right-radius: 50px;
+	    -moz-border-radius-bottomright: 50px;
+	        border-bottom-right-radius: 50px;
+	text-decoration: none !important;
+	text-shadow: none !important;
+}
+
+.menu-flower-items > li:hover ul{ 
+	position: relative;
+	left: -16px; 
+	width: 72px;
+	padding: 28px 4px 28px 4px;
+}
+
+.menu-flower-items > li ul li{
+	padding: 6px;
+}
+
+.menu-flower-items > li ul li:hover{
+	background: blue;
+	border-radius:16px;
+}
+
+.menu-flower-items .parent a{
+	position: relative;
+}
+
+.nav-child a{
+	position: relative;
+	top: 2px !important;
+	color: red !important;
+}
+
+/* circular image hover animations --------------------------------------- */
+.loading-circle-inner {
+	position: absolute;
+	background-color: rgba(0,0,0,0);
+	border:5px solid rgba(0,183,229,0.9);
+	border-left:5px solid rgba(0,0,0,0);
+	border-right:5px solid rgba(0,0,0,0);
+	border-radius:230px;
+	box-shadow: 0 0 15px #2187e7;
+	
+	top:30px;
+	left: 20px;
+	width:230px;
+	height:230px;
+	
+	-moz-opacity: .9;
+    -webkit-opacity: .9;
+    opacity: .9;
+    filter: alpha(opacity = 90);
+    
+	-moz-animation:spinoffPulse 100s infinite linear;
+	-moz-animation-delay:0.1s;
+	-webkit-animation:spinoffPulse 100s infinite linear;
+	-webkit-animation-delay:0.1s;
+}
+
+@-moz-keyframes spinPulse {
+	0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7;}
+	50% { -moz-transform:rotate(145deg); opacity:1; }
+	100% { -moz-transform:rotate(-320deg); opacity:0; }
+}
+@-moz-keyframes spinoffPulse {
+	0% { -moz-transform:rotate(0deg); }
+	100% { -moz-transform:rotate(360deg);  }
+}
+@-webkit-keyframes spinPulse {
+	0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7; }
+	50% { -webkit-transform:rotate(145deg); opacity:1;}
+	100% { -webkit-transform:rotate(-320deg); opacity:0; }
+}
+@-webkit-keyframes spinoffPulse {
+	0% { -webkit-transform:rotate(0deg); }
+	100% { -webkit-transform:rotate(360deg); }
+}
+			
+.circular-frame-2{
+	position:relative;
+	width:200px;
+	height:200px;
+	float:left;
+	margin:50px 40px;
+	border-radius:125px;
+	-moz-border-radius:125px;
+	-webkit-border-radius:125px;
+}
+
+/* thumbnails style */
+.circular-frame-2 figure{
+	position:absolute;
+	overflow:hidden;
+	left:0px;
+	top:0px;
+	width:200px;
+	height:200px;
+	margin:0;
+	
+	border-radius:125px;
+	-moz-border-radius:125px;
+	-webkit-border-radius:125px;
+}
+
+.circular-frame-2 img{
+	position:absolute;
+	left:0;
+	top:-2px;
+	width:200px;
+	height:200px;
+	
+	border-radius:125px;
+	-moz-border-radius:125px;
+	-webkit-border-radius:125px;
+	
+	-moz-opacity: .3;
+    -webkit-opacity: .3;
+    opacity: .3;
+    filter: alpha(opacity = 30);
+	
+	transform: scale(1.5,1.5);
+	-ms-transform: scale(1.5,1.5);
+	-moz-transform: scale(1.5,1.5);
+	
+	transition: 
+		opacity 1s ease-in,
+		transform 1.5s;
+	-moz-transition: 
+		opacity 1s ease-in,
+		-moz-transform 1.5s;
+	-webkit-transition: 
+		opacity 1s ease-in,
+		-webkit-transform 1.5s;
+		
+	z-index: 5;
+}
+
+.circular-frame-hovered img{
+	-moz-opacity: 1;
+    -webkit-opacity: 1;
+    opacity: 1;
+    filter: alpha(opacity = 100);
+	transform: scale(1.1,1.1);
+	-ms-transform: scale(1.1,1.1);
+	-moz-transform: scale(1.1,1.1);
+	-webkit-transform: scale(1.1,1.1);
+}
+
+/* moved to the above jquery addclass
+.circular-frame-2:hover img{
+	opacity:1;
+	filter: alpha(opacity = 100);
+	transform: scale(1,1);
+	-ms-transform: scale(1,1);
+	-moz-transform: scale(1,1);
+	-webkit-transform: scale(1,1);
+}*/
+.circular-frame-2 figcaption{
+	position:absolute;
+	left:24px;
+	top:48%;
+	width:200px;
+	color:#004E87;
+	font-weight:bold;
+	text-shadow:-1px -1px 0 #fff;
+	-moz-opacity: .9;
+    -webkit-opacity: .9;
+    opacity: .9;
+    filter: alpha(opacity = 90);
+	z-index: 4;
+	
+	transform: scale(1,1);
+	-ms-transform: scale(1,1);
+	-moz-transform: scale(1,1);
+	-webkit-transform: scale(1,1);
+	
+	transition: 
+		opacity 1s,
+		transform 1s ease;
+	-moz-transition: 
+		opacity 1s,
+		-moz-transform 1s ease;
+	-webkit-transition: 
+		opacity 1s,
+		-webkit-transform 1s ease;
+		
+		
+}
+.circular-frame-2:hover figcaption{
+	-moz-opacity: .0;
+    -webkit-opacity: .0;
+    opacity: .0;
+    filter: alpha(opacity = 0);
+	transform: scale(1.5,1.5);
+	-ms-transform: scale(1.5,1.5);
+	-moz-transform: scale(1.5,1.5);
+	-webkit-transform: scale(1.5,1.5);
+}
+
+.circular-frame-caption{
+	font-size: 24px;	
+}
+
+/* decoration style */
+.circular-frame-2 .circle{
+	position:absolute;
+	border-radius:140px;
+	-moz-border-radius:140px;
+	-webkit-border-radius:140px;
+}
+
+.circular-frame-2 .circular-frame-outer-1{
+	top:-11px;
+	left:-11px;
+	width:198px;
+	height:198px;
+	z-index: 2;
+	overflow: hidden;
+	
+	border:12px solid;
+	border-color:gold;
+	box-shadow:0 0 3px #AFD3FF;
+	-moz-box-shadow:0 0 3px #AFD3FF;
+	-webkit-box-shadow:0 0 3px #AFD3FF;
+	
+	background: #ffffff;
+	background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #e2efff 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ffffff), color-stop(100%,#e2efff));
+	background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#e2efff 100%);
+	background: -o-radial-gradient(center, ellipse cover, #ffffff 0%,#e2efff 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #ffffff 0%,#e2efff 100%);
+	background: radial-gradient(center, ellipse cover, #ffffff 0%,#e2efff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e2efff',GradientType=1 );
+	
+	transition:
+		box-shadow 1s ease-out,
+		border-color 1.5s;
+	-moz-transition:
+		-moz-box-shadow 1s ease-out,
+		border-color 1.5s;
+	-webkit-transition:
+		-webkit-box-shadow 1s ease-out,
+		border-color 1.5s;
+}
+.circular-frame-2:hover .circular-frame-outer-1{
+	border-color:#0088EA;
+	box-shadow:0 0 10px #0285E2;
+	-moz-box-shadow:0 0 10px #0285E2;
+	-webkit-box-shadow:0 0 10px #0285E2;
+}
+
+.circular-frame-2 .circular-frame-outer-2{
+	top:-16px;
+	left:-16px;
+	width:212px;
+	height:212px;
+	z-index: 1;
+	
+	border:10px solid;
+	border-color: #9BC8FF;
+	box-shadow:0 0 20px #8EB9FF;
+	-moz-box-shadow:0 0 20px #8EB9FF;
+	-webkit-box-shadow:0 0 20px #8EB9FF;
+	-moz-opacity: 0;
+    -webkit-opacity: 0;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+	
+	transform: scale(1.3,1.3);
+	-ms-transform: scale(1.3,1.3);
+	-moz-transform: scale(1.3,1.3);
+	-webkit-transform: scale(1.3,1.3);
+		
+	transition: 
+		opacity 1s ease 0.3s,
+		transform 1s ease-out 0.3s;
+	-moz-transition: 
+		opacity 1s ease 0.3s,
+		-moz-transform 1s ease-out 0.3s;
+	-webkit-transition: 
+		opacity 1s ease 0.3s,
+		-webkit-transform 1s ease-out 0.3s;
+}
+/* */
+.circular-frame-2:hover .circular-frame-outer-2{
+	-moz-opacity: .9;
+    -webkit-opacity: .9;
+    opacity: .9;
+    filter: alpha(opacity = 90);
+	transform: scale(1,1);
+	-ms-transform: scale(1,1);
+	-moz-transform: scale(1,1);
+	-webkit-transform: scale(1,1);
+}
+
+
+.circular-frame-outer-2-hovered{
+	-moz-opacity: .9;
+    -webkit-opacity: .9;
+    opacity: .9;
+    filter: alpha(opacity = 90);
+	transform: scale(1,1);
+	-ms-transform: scale(1,1);
+	-moz-transform: scale(1,1);
+	-webkit-transform: scale(1,1);
+}
+
+.circular-transform {
+	background: red;
+	width: 500px;
+	height: 500px;
+}
+
+
+.menu-flower-controls-wrapper{
+	clear: both;
+	position: absolute;
+	bottom: 0px;
+	font-size: 10px;
+	z-index: 50000;
+}
+
+
+/* iphone style on/off buttons for option controls -------------------------------------------------------- */
+
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after{
+    content: "flip";
+}
+
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::after,
+.iphone-toggle-buttons input[type="radio"]:checked + span::after{
+    content: "flip";
+}
+
+.iphone-toggle-buttons{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.iphone-toggle-buttons ul{
+    list-style: none;
+}
+
+.iphone-toggle-buttons ul li{
+    position: relative;
+    float: left;
+}
+
+.iphone-toggle-buttons{
+    margin: 4px 0;
+}
+
+.iphone-toggle-buttons label,
+.iphone-toggle-buttons input[type="checkbox"] + span,
+.iphone-toggle-buttons input[type="radio"] + span,
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after
+{
+    display: inline-block;
+}
+
+.iphone-toggle-buttons label,
+.iphone-toggle-buttons input[type="checkbox"] + span,
+.iphone-toggle-buttons input[type="radio"] + span
+{
+    vertical-align: middle;
+}
+
+.iphone-toggle-buttons input[type="checkbox"] + span,
+.iphone-toggle-buttons input[type="radio"] + span,
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after
+{
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after,
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::before,
+.iphone-toggle-buttons input[type="radio"]:checked + span::before,
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::after,
+.iphone-toggle-buttons input[type="radio"]:checked + span::after
+{
+    top: 0;
+}
+
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after,
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::before,
+.iphone-toggle-buttons input[type="radio"]:checked + span::before
+{
+    right: 0;
+}
+
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::after,
+.iphone-toggle-buttons input[type="radio"]:checked + span::after
+{
+    left: 0;
+}
+
+.iphone-toggle-buttons input[type="checkbox"],
+.iphone-toggle-buttons input[type="radio"],
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after
+{
+    position: absolute;
+}
+
+.iphone-toggle-buttons label
+{
+    margin: 4px;
+    cursor: pointer;
+}
+
+.iphone-toggle-buttons input[type="checkbox"],
+.iphone-toggle-buttons input[type="radio"]
+{
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -webkit-opacity: 0;
+    opacity: 0;
+}
+
+.iphone-toggle-buttons input[type="checkbox"] + span,
+.iphone-toggle-buttons input[type="radio"] + span
+{
+    width: 100px;
+    height: px;
+    font: bold 14px/24px Arial, Sans-serif;
+    color: #8c8c8c;
+    text-transform: uppercase;
+    border: solid 1px #bcbbbb;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c8c8c8", endColorstr="#f3f3f3");
+    background: -moz-linear-gradient(top, #c8c8c8, #f3f3f3);
+    background: -webkit-linear-gradient(top, #c8c8c8, #f3f3f3);
+    background: -o-linear-gradient(top, #c8c8c8, #f3f3f3);
+    background: -ms-linear-gradient(top, #c8c8c8, #f3f3f3);
+    background: linear-gradient(top, #c8c8c8, #f3f3f3);
+    position: relative;
+    text-indent: -9999px;
+}
+
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before
+{
+    content: "";
+    width: 40%;
+    height: 24px;
+    border-top: solid 1px #fff;
+    border-right: solid 1px #bebebe;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cfcfcf", endColorstr="#f9f9f9");
+    background: -moz-linear-gradient(top, #cfcfcf, #f9f9f9);
+    background: -webkit-linear-gradient(top, #cfcfcf, #f9f9f9);
+    background: -o-linear-gradient(top, #cfcfcf, #f9f9f9);
+    background: -ms-linear-gradient(top, #cfcfcf, #f9f9f9);
+    background: linear-gradient(top, #cfcfcf, #f9f9f9);
+    -moz-box-shadow: 1px 0 1px #bebebe;
+    -webkit-box-shadow: 1px 0 1px #bebebe;
+    box-shadow: 1px 0 1px #bebebe;
+}
+
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after
+{
+    text-indent: 0;
+    width: 62%;
+    height: 32px;
+    text-align: center;
+}
+
+.iphone-toggle-buttons input[type="checkbox"]:checked + span,
+.iphone-toggle-buttons input[type="radio"]:checked + span
+{
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1b45bd", endColorstr="#5d96ea");
+    background: -moz-linear-gradient(top, #1b45bd, #5d96ea);
+    background: -webkit-linear-gradient(top, #1b45bd, #5d96ea);
+    background: -o-linear-gradient(top, #1b45bd, #5d96ea);
+    background: -ms-linear-gradient(top, #1b45bd, #5d96ea);
+    background: linear-gradient(top, #1b45bd, #5d96ea);
+    color: #fff;
+    text-shadow: -1px -1px #0d2046;
+}
+
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::before,
+.iphone-toggle-buttons input[type="radio"]:checked + span::before
+{
+    left: auto;
+    -moz-box-shadow: -2px 0 1px #3a5e91;
+    -webkit-box-shadow: -2px 0 1px #3a5e91;
+    box-shadow: -2px 0 1px #3a5e91;
+}
+
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::after,
+.iphone-toggle-buttons input[type="radio"]:checked + span::after
+{
+    border-top: solid 1px #0f2a4f;
+    border-bottom: solid 1px #0f2a4f;
+    border-left: solid 1px #2c5496;
+    height: 24px;
+    top: -1px;
+    left: -1px;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+.browser-support li.ie6,
+.browser-support li.ie7,
+.browser-support li.ie8
+{
+    display: none;
+}
+
