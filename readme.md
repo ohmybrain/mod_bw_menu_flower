@@ -1,4 +1,4 @@
-Joomla Module :: i-am-a-flower Radius Menu 1.0.1
+Joomla Module :: i-am-a-flower Radius Menu
 =============
 I Am a Flower Radius Menu System creates a flower like array of menu elements and sub elements around circle via (x',y')=(cx+r*cos(α),cy+r*sin(α).
 
@@ -34,7 +34,7 @@ Three versions, stand alone HTML, Joomla Module and Wordpress Plugin.
 
 Requirements
 =============
-jQuery v. 1.6+
+jQuery v. 1.8+
 
 path.js (included)
 
