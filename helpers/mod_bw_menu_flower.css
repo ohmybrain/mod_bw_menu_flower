@@ -4,14 +4,14 @@
  * @copyright	Copyright (C) 2012 Oh My Brain, inc. All rights reserved
  * @license     GNU General Public License version 2 or later; see Joomla LICENSE.txt
  * @ Inquiries	info@ohmybrain.com - http://www.brianwilliford.com 
- * @modified 	BW 121218a
+ * @modified 	BW 121218a BW 121220
 */
 
 
 /* circular image -------------------------------------------------------- */
 #menu-flower-center-image-wrapper {
 	position: relative;
-	top: 80px; /* tweek this */
+	top: 40px; /* tweek this */
 	width:280px;
 	height:280px;
 	margin-left: auto;
@@ -19,7 +19,7 @@
 }
 
 /* circular image hover animations --------------------------------------- */
-.loading-circle-inner {
+.circle-spinning-ring {
 	position: absolute;
 	background-color: rgba(0,0,0,0);
 	border:5px solid rgba(0,183,229,0.9);
@@ -27,7 +27,7 @@
 	border-right:5px solid rgba(0,0,0,0);
 	border-radius:230px;
 	box-shadow: 0 0 15px #2187e7;
-	top:30px;
+	top:20px;
 	left: 20px;
 	width:230px;
 	height:230px;
@@ -36,9 +36,8 @@
 	  		opacity: .9;
     filter: alpha(opacity = 90);
 	-moz-animation:spinoffPulse 100s infinite linear;
-	-moz-animation-delay:0.1s;
 	-webkit-animation:spinoffPulse 100s infinite linear;
-	-webkit-animation-delay:0.1s;
+	
 }
 
 @-moz-keyframes spinPulse {
@@ -64,7 +63,7 @@
 	position:relative;
 	width:200px;
 	height:200px;
-	top: 50px;
+	top: 40px;
 	left: 40px;
 	margin:0;	
 	-webkit-border-radius:100px;
@@ -257,8 +256,6 @@
 
 .circular-transform {
 	background: red;
-	width: 500px;
-	height: 500px;
 }
 
 

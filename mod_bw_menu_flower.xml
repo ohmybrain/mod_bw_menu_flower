@@ -118,21 +118,21 @@
 				<field
 					name="css_wrapper_size"
 					type="text"
-					default="500"
+					default="360"
 					label="MOD_BW_MENU_FLOWER_FIELD_WRAPPER_SIZE_LABEL"
 					description="MOD_BW_MENU_FLOWER_FIELD_WRAPPER_SIZE_DESC" />
 				
 				<field
 					name="css_flower_size_start"
 					type="text"
-					default="60"
+					default="50"
 					label="MOD_BW_MENU_FLOWER_FIELD_FLOWER_SIZE_START_LABEL"
 					description="MOD_BW_MENU_FLOWER_FIELD_FLOWER_SIZE_START_DESC" />
 					
 				<field
 					name="css_flower_size_end"
 					type="text"
-					default="130"
+					default="100"
 					label="MOD_BW_MENU_FLOWER_FIELD_FLOWER_SIZE_END_LABEL"
 					description="MOD_BW_MENU_FLOWER_FIELD_FLOWER_SIZE_END_DESC" />
 				

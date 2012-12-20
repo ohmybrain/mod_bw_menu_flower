@@ -6,7 +6,7 @@
  * @copyright   Copyright (C) 2012 Brian Williford, All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @ Inquiries	info@ohmybrain.com - http://www.brianwilliford.com 
- * Last Modified: BW 121218a
+ * Last Modified: BW 121220b
 */
 
 defined('_JEXEC') or die;
@@ -39,8 +39,9 @@ defined('_JEXEC') or die;
 ?>
 
 <script language="javascript" type="text/javascript">
+	/* convert joomla module vars to global js vars */
 	bw_gvars = {};
-	bw_gvars.flowerBloomed		= 0; // no touch
+	bw_gvars.flowerBloomed		= 0; // no touchy
 	
 	// user editable
 	bw_gvars.pedalRotate		= <?php echo $pedal_rotate ?>; // 0 parallel to horizon :: 1 pedals perpendicular radius
@@ -61,15 +62,16 @@ defined('_JEXEC') or die;
 		max-width: <?php echo $wrapper_size; ?>px;
 		height: <?php echo $wrapper_size_ext; ?>px;
 		max-height: <?php echo $wrapper_size_ext; ?>px;
-		overflow: hidden;
+		/*overflow: hidden;*/
 	}
 	
 	#menu-flower-pedal-wrapper{
 		position: absolute;
+		overflow: hidden;
 		width: <?php echo $wrapper_size; ?>px;
 		max-width: <?php echo $wrapper_size; ?>px;
 		height: <?php echo $wrapper_size_ext; ?>px;
-		top: 80px;
+		top: 0px;
 		left: 0px;
 		z-index: 1; /* set the pedals, or menu layer to be below the center - This gets flipped on center mouseleave */
 	}
@@ -79,7 +81,7 @@ defined('_JEXEC') or die;
 	
   	<!-- center image -->
 	<div id="menu-flower-center-image-wrapper">
-		<div class="loading-circle-inner"></div>
+		<div class="circle-spinning-ring"></div>
 		<div class="circular-frame-2">
 			<div class="circular-frame-outer-1 circle"></div>
 			<div class="circular-frame-outer-2 circle"></div>
@@ -91,7 +93,6 @@ defined('_JEXEC') or die;
 				<?php if ($link) : ?>
 				</a>
 				<?php endif; ?>
-	
 				<figcaption class="circular-frame-caption"><?php echo $begin_messaage; ?></figcaption>
 			</figure>
 		</div>
@@ -99,6 +100,7 @@ defined('_JEXEC') or die;
 		
 	<!-- this is the javascript manipluated circumference the menu is placed around -->
 	<div id="menu-flower-pedal-wrapper">
+		<!-- canvas is the magic target -->
 	     <canvas></canvas>
 	
 	    <!-- joomla menu ouput -->
@@ -109,7 +111,7 @@ defined('_JEXEC') or die;
 				echo ' id="'.$tag.'"';
 			}
 		?>>
-		<?php
+		<?php // joomla menu item output mechanism
 		foreach ($list as $i => &$item) :
 			$class = 'item-'.$item->id;
 			if ($item->id == $active_id) {
@@ -200,6 +202,59 @@ defined('_JEXEC') or die;
 	// jquery time
 	jQuery(function ($) { 
 	
+		// call this method to center an element horizontally and or vertically in window
+		jQuery.fn.centerInWindow = function (x,y) {
+		    this.css("position","absolute");
+		    if(x==true){
+			    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+		    }
+		    if(y==true){
+			    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + "px");
+		    }
+		    return this;
+		}
+		
+		// call this method to center an element horizontally and vertically in outer div
+		jQuery.fn.centerInWrapper = function (x,y) {
+		    this.css("position","absolute");
+		    if(x==true){
+		    	this.css("top", Math.max(0, (($('#mod_bw_menu_flower_wrapper').height() - $(this).outerHeight()) / 2) + $('#mod_bw_menu_flower_wrapper').scrollTop()) + "px");
+		    }
+		    if(y==true){
+		   		this.css("left", Math.max(0, (($('#mod_bw_menu_flower_wrapper').width() - $(this).outerWidth()) / 2) + $('#mod_bw_menu_flower_wrapper').scrollLeft()) + "px");
+		    }
+		    return this;
+		}
+		
+		// call this method to center an element horizontally and vertically in inner div
+		jQuery.fn.centerInCenterWrapper = function (x,y) {
+		    this.css("position","absolute");
+		    if(x==true){
+		    	this.css("top", Math.max(0, (($('#menu-flower-center-image-wrapper').height() - $(this).outerHeight()) / 2) + $('#menu-flower-center-image-wrapper').scrollTop()) + "px");
+		    }
+		    if(y==true){
+		   		this.css("left", Math.max(0, (($('#menu-flower-center-image-wrapper').width() - $(this).outerWidth()) / 2) + $('#menu-flower-center-image-wrapper').scrollLeft()) + "px");
+		    }
+		    return this;
+		}
+		
+		// center this element - cisable and use CSS values to do creative offsets
+		$('#menu-flower-center-image-wrapper').centerInWrapper(x=true,y=true);
+		$('#menu-flower-pedal-wrapper').centerInWrapper(x=true,y=true);
+		$('.circle-spinning-ring').centerInCenterWrapper(x=true,y=true);
+		$('.circular-frame-2').centerInCenterWrapper(x=true,y=true);
+		
+		// css rotate the entire gizmo (uncomment below)
+		//$("#menu_flower_wrapper").addClass('rotate_forward_300'); 
+		
+		// css rotate the pedals (uncomment below)
+		$("#menu-flower-pedal-wrapper").addClass('rotate_backward_300'); 
+		
+		// css rotate the chewey center (uncomment below)
+		//$("#menu-flower-center-image-wrapper").addClass('rotate_backward_300');
+		//$(".circular-frame-caption").addClass('rotate_forward_300'); // keep text inside level
+
+
 		// fade other menus so sub menu is not hidden. z-indexes are bound to parent and not re-stackable
 		$(".menu-flower-items > li").hover(function() { // Mouse over
 			$(this).siblings().stop().fadeTo(300, 0.5);
@@ -219,18 +274,18 @@ defined('_JEXEC') or die;
 		$(".circular-frame-2").bind( { "mouseenter": function( event) {  
 		       bw_circular_frame.addClass('circular-frame-hovered');  
 		       $("#menu-flower-pedal-wrapper").animate( {width: '800px'}, 1500);
-		       $(".loading-circle-inner").animate( {opacity: '0'}, 1500); 
+		       $(".circle-spinning-ring").animate( {opacity: '0'}, 1500); 
 		       
 		       // call bloom function
 		       expandFlowerPedals();
 		       
 		    },"mouseleave": function( event) {
-		         $(".loading-circle-inner").animate( {opacity: '1'}, 2500);
+		         $(".circle-spinning-ring").animate( {opacity: '1'}, 2500);
 		         // set the pedals, or menu layer to be above the center
 		         $("#menu-flower-pedal-wrapper").css({ 'z-index':'50000'}); 
 	
 		    }, "click": function( event ) {
-		       	 $(".loading-circle-inner").animate( {opacity: '0'}, 500);
+		       	 $(".circle-spinning-ring").animate( {opacity: '0'}, 500);
 		    }
 		});
 		
@@ -283,14 +338,14 @@ defined('_JEXEC') or die;
 		angleOffset = angleOffset,
 		translateRelative = pedal_orientation,
 		doOnce = true;
-		// adjust offeset settings for pedal rotation and template changes
+		// adjust offeset settings for pedal rotation when css template changes fail
 		if(bw_gvars.pedalRotate < 1){
 			cxOffset = 0;
-			cyOffset = 60;
+			cyOffset = -38;
 			circle_size	= circle_size+36;
 		} else {
-			cxOffset = 0;
-			cyOffset = 102;
+			cxOffset = -2;
+			cyOffset = 2;
 		}
 		// circleRadius = radius : cx = width : cy = height 
 		var circleRadius = circle_size, cx = bw_gvars.cssWrapperSize/2+cxOffset, cy = bw_gvars.cssWrapperSize/2-cyOffset,
@@ -300,12 +355,10 @@ defined('_JEXEC') or die;
 	   // add some general padding
 	   canvas1.width = cx * 2 + 4;
 	   canvas1.height = cy * 2 + 4;
-	   //alert("canvas1.width: " +canvas1.width);
-	   //alert("canvas1.height: " +canvas1.height);
-	  // alert('circleRadius: '+circleRadius);
-	  
-	  //circleRadius = circleRadius+10;
-	
+		//alert("canvas1.width: " +canvas1.width);
+		//alert("canvas1.height: " +canvas1.height);
+		//alert('circleRadius: '+circleRadius);
+	  	
 	   // Center of the circle relative to canvas
 	   cx += 2;
 	   cy += 2;
