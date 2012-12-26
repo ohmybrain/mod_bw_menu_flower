@@ -4,7 +4,7 @@
  * @copyright	Copyright (C) 2012 Oh My Brain, inc. All rights reserved
  * @license     GNU General Public License version 2 or later; see Joomla LICENSE.txt
  * @ Inquiries	info@ohmybrain.com - http://www.brianwilliford.com 
- * @modified 	BW 121218a BW 121220
+ * @modified 	BW 121218 BW 121220 BW 121226
 */
 
 
@@ -36,29 +36,30 @@
 	  		opacity: .9;
     filter: alpha(opacity = 90);
 	-moz-animation:spinoffPulse 100s infinite linear;
+	 /*
 	-webkit-animation:spinoffPulse 100s infinite linear;
-	
+	*/	
 }
 
-@-moz-keyframes spinPulse {
-	0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7;}
-	50% { -moz-transform:rotate(145deg); opacity:1; }
-	100% { -moz-transform:rotate(-320deg); opacity:0; }
-}
-@-moz-keyframes spinoffPulse {
-	0% { -moz-transform:rotate(0deg); }
-	100% { -moz-transform:rotate(360deg);  }
-}
 @-webkit-keyframes spinPulse {
 	0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7; }
 	50% { -webkit-transform:rotate(145deg); opacity:1;}
 	100% { -webkit-transform:rotate(-320deg); opacity:0; }
 }
+@-moz-keyframes spinPulse {
+	0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7;}
+	50% { -moz-transform:rotate(145deg); opacity:1; }
+	100% { -moz-transform:rotate(-320deg); opacity:0; }
+}
 @-webkit-keyframes spinoffPulse {
 	0% { -webkit-transform:rotate(0deg); }
 	100% { -webkit-transform:rotate(360deg); }
 }
-			
+@-moz-keyframes spinoffPulse {
+	0% { -moz-transform:rotate(0deg); }
+	100% { -moz-transform:rotate(360deg);  }
+}
+	
 .circular-frame-2{
 	position:relative;
 	width:200px;

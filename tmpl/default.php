@@ -6,7 +6,7 @@
  * @copyright   Copyright (C) 2012 Brian Williford, All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @ Inquiries	info@ohmybrain.com - http://www.brianwilliford.com 
- * Last Modified: BW 121220b
+ * Last Modified: BW 121220b BW 121226a
 */
 
 defined('_JEXEC') or die;
@@ -30,11 +30,11 @@ defined('_JEXEC') or die;
 	$doc->addStyleSheet( 'modules/mod_bw_menu_flower/helpers/mod_bw_menu_flower.css' );
 	if($include_scripts == 1){ 
 		//$doc->addScript('modules/mod_bw_menu_flower/helpers/jquery.min.js');
-		
+		JHtml::_('jquery.framework');  // joomla 3.0 :: includes no-conflict call :: JHtml::_('jquery.framework', false); does not
+
 	}
-	JHtml::_('jquery.framework');  // joomla 3.0 :: includes no-conflict call :: JHtml::_('jquery.framework', false); does not
 	$doc->addScript('modules/mod_bw_menu_flower/helpers/path.min.js');
-	$doc->addScript('modules/mod_bw_menu_flower/helpers/jquery.ui.touch-punch.min.js');
+	//$doc->addScript('modules/mod_bw_menu_flower/helpers/jquery.ui.touch-punch.min.js');
 
 ?>
 
@@ -78,8 +78,8 @@ defined('_JEXEC') or die;
 </style>
 
 <div id="mod_bw_menu_flower_wrapper">
-	
-  	<!-- center image -->
+
+ 	<!-- center image -->
 	<div id="menu-flower-center-image-wrapper">
 		<div class="circle-spinning-ring"></div>
 		<div class="circular-frame-2">
@@ -97,7 +97,7 @@ defined('_JEXEC') or die;
 			</figure>
 		</div>
 	</div>
-		
+
 	<!-- this is the javascript manipluated circumference the menu is placed around -->
 	<div id="menu-flower-pedal-wrapper">
 		<!-- canvas is the magic target -->
@@ -197,7 +197,7 @@ defined('_JEXEC') or die;
 	<br clear="all">
 	<?php } ?>
 </div>	
-	
+
 <script type="text/javascript">
 	// jquery time
 	jQuery(function ($) { 
@@ -238,7 +238,7 @@ defined('_JEXEC') or die;
 		    return this;
 		}
 		
-		// center this element - cisable and use CSS values to do creative offsets
+				// center this element - cisable and use CSS values to do creative offsets
 		$('#menu-flower-center-image-wrapper').centerInWrapper(x=true,y=true);
 		$('#menu-flower-pedal-wrapper').centerInWrapper(x=true,y=true);
 		$('.circle-spinning-ring').centerInCenterWrapper(x=true,y=true);
@@ -248,7 +248,7 @@ defined('_JEXEC') or die;
 		//$("#menu_flower_wrapper").addClass('rotate_forward_300'); 
 		
 		// css rotate the pedals (uncomment below)
-		$("#menu-flower-pedal-wrapper").addClass('rotate_backward_300'); 
+		//$("#menu-flower-pedal-wrapper").addClass('rotate_backward_300'); 
 		
 		// css rotate the chewey center (uncomment below)
 		//$("#menu-flower-center-image-wrapper").addClass('rotate_backward_300');
@@ -288,7 +288,8 @@ defined('_JEXEC') or die;
 		       	 $(".circle-spinning-ring").animate( {opacity: '0'}, 500);
 		    }
 		});
-		
+
+
 		// bloom function - circle start point exapnded on center image rollover. set start and end size the same to disable bloom animation
 		function expandFlowerPedals(){
 			//alert('called');
@@ -312,7 +313,6 @@ defined('_JEXEC') or die;
 			// bloomed
 			bw_gvars.flowerBloomed	= 1;
 		} 
-
 
 	// set up the flower like canvas of elements and sub elements around circle via (x',y')=(cx+r*cos(α),cy+r*sin(α)
 	function setFlowerCanvas(circle_size,pedal_orientation,angleOffset,pedal_rotate){
@@ -363,8 +363,8 @@ defined('_JEXEC') or die;
 	   cx += 2;
 	   cy += 2;
 	   //alert("cx: " + cx +  " cy: " + cy);
-
-		// set the postion around path
+	   
+	   // set the postion around path
 		function position(){
 	
 			// center of the circle relative to the page
@@ -449,7 +449,6 @@ defined('_JEXEC') or die;
 			}
 			
 			doOnce = false;
-			
 		}
 	
 	   // hidden controller functions. Unhide controller to play here
@@ -487,10 +486,11 @@ defined('_JEXEC') or die;
 		
 		// set position around path		 
 	   position();
+
 	};
 
 	// pre-bloom start point
 	setFlowerCanvas(<?php echo $flower_size_start; ?>,1,0,bw_gvars.pedalRotate);
 
-	});
+	});	
 </script>

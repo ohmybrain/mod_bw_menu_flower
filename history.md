@@ -9,5 +9,10 @@ CSS work
 
 v1.0.2 - Dec, 20 2012
 =============
-CSS updates
 Add jQuery auto centering methods
+CSS updates
+
+v1.0.3 - Dec, 26 2012
+=============
+Added more auto centering JS Methods
+CSS updates
